@@ -18,14 +18,14 @@ const DUMMY_COFFEES: Coffee[] = [
   {
     id: "cf-3",
     name: "Breve",
-    imageLink: "/coffee-1.jpg",
+    imageLink: "/coffee-3.jpg",
     countries: ["BR", "IN"],
   },
 
   {
     id: "cf-4",
     name: "Cortado",
-    imageLink: "/coffee-1.jpg",
+    imageLink: "/coffee-4.jpg",
     countries: ["MX"],
   },
 ];
