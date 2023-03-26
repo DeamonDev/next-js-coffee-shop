@@ -12,6 +12,7 @@ import {
 import { Coffee } from "../types/Coffee";
 import ReactCountryFlag from "react-country-flag";
 import { Container } from "@mui/system";
+import styled from "@emotion/styled";
 
 type CoffeeCardProps = Coffee;
 
@@ -22,16 +23,24 @@ const COUNTRIES_MAP: Record<string, string> = {
   NP: "Nepal",
 };
 
+const CardContentNoPadding = styled(CardContent)(`
+  padding: 0;
+  &:last-child {
+    padding-bottom: 0;
+  }
+`);
+
 const CountryIcons = ({ countries }: { countries: string[] }) => {
   return (
-    <Box sx={{gap: {xs: "5px", md: "10px"}}} display="flex" flexDirection="row">
+    <Box
+      sx={{ gap: { xs: "5px", md: "10px" } }}
+      display="flex"
+      flexDirection="row"
+    >
       {countries.map((countryCode) => (
         <Tooltip title={COUNTRIES_MAP[countryCode]}>
-          <Box sx={{fontSize: {xs: "1.5em", md: "1.75em"}}}>
-            <ReactCountryFlag
-              key={countryCode}
-              countryCode={countryCode}
-            />
+          <Box sx={{ fontSize: { xs: "1.5em", md: "1.75em" } }}>
+            <ReactCountryFlag key={countryCode} countryCode={countryCode} />
           </Box>
         </Tooltip>
       ))}
@@ -49,8 +58,7 @@ const CoffeeCard = ({ id, name, imageLink, countries }: CoffeeCardProps) => {
         },
         backgroundColor: "#855129",
         borderRadius: "10px",
-        mt: {xs: "1px", md: "5px"},
-        p: 0
+        mt: { xs: "1px", md: "5px" },
       }}
     >
       <CardMedia
@@ -59,15 +67,24 @@ const CoffeeCard = ({ id, name, imageLink, countries }: CoffeeCardProps) => {
         image={imageLink}
         title="cffe-1"
       />
-      <CardContent sx={{p: 0}}>
-        <Box display="flex" justifyContent="space-between" flexDirection="column" sx={{p: 0}}>
+      <CardContentNoPadding>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          flexDirection="column"
+          sx={{ p: 0 }}
+        >
           <Box
             display="flex"
             flexDirection="column"
             justifyContent="space-between"
-            sx={{ml: {xs: 1, md: 3}, mt: {xs: 0, md: 2}}}
+            sx={{ ml: { xs: 1, md: 3 }, mt: { xs: 0, md: 2 } }}
           >
-            <Typography color="white" fontWeight="bold" sx={{mb: {xs: "0px", md: "3px"}}}>
+            <Typography
+              color="white"
+              fontWeight="bold"
+              sx={{ mb: { xs: "0px", md: "3px" } }}
+            >
               {name}
             </Typography>
             <CountryIcons countries={countries} />
@@ -77,7 +94,7 @@ const CoffeeCard = ({ id, name, imageLink, countries }: CoffeeCardProps) => {
             <AddCircleOutline fontSize="large" sx={{ color: "white" }} />
           </IconButton>
         </Box>
-      </CardContent>
+      </CardContentNoPadding>
     </Card>
   );
 };
