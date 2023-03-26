@@ -5,7 +5,7 @@ import DUMMY_COFFEES from "../data/coffees";
 const ProductsList = () => {
   return (
     <Box
-      sx={{ height: "100vh", backgroundColor: "#38261e" }}
+      sx={{ height: "100%", backgroundColor: "#38261e" }}
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -21,7 +21,7 @@ const ProductsList = () => {
           alignItems: "center",
           backgroundColor: "#a8794a",
           mt: { xs: 5, md: 3 },
-          height: { xs: "100vh", md: "52vh" },
+          height: { xs: "100%", md: "52vh" },
           width: { xs: "85%", md: "75%" },
           borderRadius: "10px",
         }}
