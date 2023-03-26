@@ -26,7 +26,7 @@ const ProductsList = () => {
           borderRadius: "10px",
         }}
       >
-        <Grid container spacing={2} sx={{ height: "100%", ml: 1, mr: 2 }}>
+        <Grid container spacing={2} sx={{ height: "100%", ml: 1, mr: 2, mt: {xs: 1}, mb: {xs: 2} }}>
           <Grid item md={3} xs={6}>
             <CoffeeCard
               id={DUMMY_COFFEES[0].id}
