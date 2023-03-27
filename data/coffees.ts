@@ -6,6 +6,7 @@ const DUMMY_COFFEES: Coffee[] = [
     name: "Rojas",
     imageLink: "/coffee-1.jpg",
     countries: ["BR", "NP"],
+    price: 3.99
   },
 
   {
@@ -13,6 +14,7 @@ const DUMMY_COFFEES: Coffee[] = [
     name: "Da Malleo",
     imageLink: "/coffee-2.jpg",
     countries: ["BR"],
+    price: 8.99
   },
 
   {
@@ -20,6 +22,7 @@ const DUMMY_COFFEES: Coffee[] = [
     name: "Breve",
     imageLink: "/coffee-3.jpg",
     countries: ["BR", "IN"],
+    price: 6.99
   },
 
   {
@@ -27,6 +30,7 @@ const DUMMY_COFFEES: Coffee[] = [
     name: "Cortado",
     imageLink: "/coffee-4.jpg",
     countries: ["MX"],
+    price: 4.99
   },
 ];
 

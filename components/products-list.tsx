@@ -1,8 +1,15 @@
 import { Box, Grid, Typography } from "@mui/material";
 import CoffeeCard from "./coffee-card";
 import DUMMY_COFFEES from "../data/coffees";
+import { useAppDispatch, useAppSelector } from "../src/store/hooks";
+import { selectShoppingCartItems } from "../src/store/shopping-cart-slice";
 
 const ProductsList = () => {
+  const dispatch = useAppDispatch();
+  const items = useAppSelector(selectShoppingCartItems);
+
+  console.log(items);
+
   return (
     <Box
       sx={{ height: "100%", backgroundColor: "#38261e" }}
@@ -26,39 +33,24 @@ const ProductsList = () => {
           borderRadius: "10px",
         }}
       >
-        <Grid container spacing={2} sx={{ height: "100%", ml: 1, mr: 2, mt: {xs: 1}, mb: {xs: 2} }}>
-          <Grid item md={3} xs={6}>
-            <CoffeeCard
-              id={DUMMY_COFFEES[0].id}
-              name={DUMMY_COFFEES[0].name}
-              countries={DUMMY_COFFEES[0].countries}
-              imageLink={DUMMY_COFFEES[0].imageLink}
-            />
-          </Grid>
-          <Grid item md={3} xs={6}>
-            <CoffeeCard
-              id={DUMMY_COFFEES[1].id}
-              name={DUMMY_COFFEES[1].name}
-              countries={DUMMY_COFFEES[1].countries}
-              imageLink={DUMMY_COFFEES[1].imageLink}
-            />
-          </Grid>
-          <Grid item md={3} xs={6}>
-            <CoffeeCard
-              id={DUMMY_COFFEES[2].id}
-              name={DUMMY_COFFEES[2].name}
-              countries={DUMMY_COFFEES[2].countries}
-              imageLink={DUMMY_COFFEES[2].imageLink}
-            />
-          </Grid>
-          <Grid item md={3} xs={6}>
-            <CoffeeCard
-              id={DUMMY_COFFEES[3].id}
-              name={DUMMY_COFFEES[3].name}
-              countries={DUMMY_COFFEES[3].countries}
-              imageLink={DUMMY_COFFEES[3].imageLink}
-            />
-          </Grid>
+        <Grid
+          container
+          spacing={2}
+          sx={{ height: "100%", ml: 1, mr: 2, mt: { xs: 1 }, mb: { xs: 2 } }}
+        >
+          {DUMMY_COFFEES.map((coffee) => {
+            return (
+              <Grid item md={3} xs={6}>
+                <CoffeeCard
+                  id={coffee.id}
+                  name={coffee.name}
+                  countries={coffee.countries}
+                  imageLink={coffee.imageLink}
+                  price={coffee.price}
+                />
+              </Grid>
+            );
+          })}
         </Grid>
       </Box>
     </Box>

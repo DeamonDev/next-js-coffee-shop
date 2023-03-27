@@ -3,4 +3,5 @@ export type Coffee = {
   name: string;
   imageLink: string;
   countries: string[];
+  price: number;
 };

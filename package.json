@@ -16,11 +16,14 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "@reduxjs/toolkit": "^1.9.3",
     "material-ui-flags": "^1.2.4",
     "next": "latest",
     "react": "latest",
     "react-country-flag": "^3.0.2",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.1"
   },
   "devDependencies": {
     "@types/node": "latest",

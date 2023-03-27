@@ -38,7 +38,7 @@ const CountryIcons = ({ countries }: { countries: string[] }) => {
       flexDirection="row"
     >
       {countries.map((countryCode) => (
-        <Tooltip title={COUNTRIES_MAP[countryCode]}>
+        <Tooltip key={countryCode} title={COUNTRIES_MAP[countryCode]}>
           <Box sx={{ fontSize: { xs: "1.5em", md: "1.75em" } }}>
             <ReactCountryFlag key={countryCode} countryCode={countryCode} />
           </Box>
@@ -48,7 +48,13 @@ const CountryIcons = ({ countries }: { countries: string[] }) => {
   );
 };
 
-const CoffeeCard = ({ id, name, imageLink, countries }: CoffeeCardProps) => {
+const CoffeeCard = ({
+  id,
+  name,
+  imageLink,
+  countries,
+  price,
+}: CoffeeCardProps) => {
   return (
     <Card
       sx={{
@@ -76,21 +82,34 @@ const CoffeeCard = ({ id, name, imageLink, countries }: CoffeeCardProps) => {
         >
           <Box
             display="flex"
-            flexDirection="column"
+            flexDirection="row"
             justifyContent="space-between"
-            sx={{ ml: { xs: 1, md: 3 }, mt: { xs: 0, md: 2 } }}
           >
+            <Box
+              display="flex"
+              flexDirection="column"
+              justifyContent="space-between"
+              sx={{ ml: { xs: 1, md: 3 }, mt: { xs: 0, md: 2 } }}
+            >
+              <Typography
+                color="white"
+                fontWeight="bold"
+                sx={{ mb: { xs: "0px", md: "3px" }, fontSize: {xs: 13, md: 18} }}
+              >
+                {name}
+              </Typography>
+              <CountryIcons countries={countries} />
+            </Box>
             <Typography
               color="white"
               fontWeight="bold"
-              sx={{ mb: { xs: "0px", md: "3px" } }}
+              sx={{ mt: { xs: 0, md: 2 }, mr: { xs: 1, md: 3 }, fontSize: {xs: 13, md: 18} }}
             >
-              {name}
+              {price} $
             </Typography>
-            <CountryIcons countries={countries} />
           </Box>
 
-          <IconButton>
+          <IconButton sx={{backgroundColor: "#946e3d", borderRadius: "0"}}>
             <AddCircleOutline fontSize="large" sx={{ color: "white" }} />
           </IconButton>
         </Box>
