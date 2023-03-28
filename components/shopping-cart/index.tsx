@@ -16,6 +16,7 @@ const style = {
   height: 600,
   bgcolor: "#b58f55",
   boxShadow: 24,
+  overflow: "scroll"
 };
 
 const ShoppingCart = () => {
