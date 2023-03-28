@@ -2,6 +2,7 @@ import { Button, Divider, Grid, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useAppDispatch, useAppSelector } from "../../src/store/hooks";
 import { selectShoppingCartItems } from "../../src/store/shopping-cart-slice";
+import CartItemsList from "./cart-items-list";
 
 const style = {
   position: "absolute" as "absolute",
@@ -13,10 +14,10 @@ const style = {
   borderRadius: "10px",
   transform: "translate(-50%, -50%)",
   width: { xs: "95%", md: "60%" },
-  height: 600,
+  height: 700,
   bgcolor: "#b58f55",
   boxShadow: 24,
-  overflow: "scroll"
+  overflow: "scroll",
 };
 
 const ShoppingCart = () => {
@@ -29,9 +30,7 @@ const ShoppingCart = () => {
     <Box sx={style}>
       <Grid container spacing={0}>
         <Grid item xs={12} md={8} sx={{ height: { xs: 400, md: 600 } }}>
-          <Typography variant="h4" color="white">
-            SHOPPING CART
-          </Typography>
+          <CartItemsList />
         </Grid>
         <Grid
           item
@@ -44,7 +43,7 @@ const ShoppingCart = () => {
             borderBottomLeftRadius: { xs: "10px", md: "0px" },
             display: "flex",
             flexDirection: "column",
-            height: { xs: 300, md: 600 },
+            height: { xs: 300, md: 700 },
           }}
         >
           <Box
@@ -87,11 +86,14 @@ const ShoppingCart = () => {
                 label="Promo Code"
                 variant="outlined"
                 size="small"
-                InputLabelProps={{style: {color: "#544623"}}}
+                InputLabelProps={{ style: { color: "#544623" } }}
                 sx={{
                   width: { xs: "100px", md: "200px", background: "#e3ccaa" },
                   "& .MuiOutlinedInput-root": {
-                    "&.Mui-focused fieldset": { borderColor: "#544623", color: "#544623" },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "#544623",
+                      color: "#544623",
+                    },
                   },
                   "& label": { color: "#544623" },
                 }}
@@ -103,8 +105,9 @@ const ShoppingCart = () => {
                   backgroundColor: "#544623",
                   "&:hover": { backgroundColor: "#63522a" },
                 }}
+                disableRipple
               >
-                Apply
+                <b>Apply</b>
               </Button>
             </Box>
             <Box display="flex" flexDirection="column">
