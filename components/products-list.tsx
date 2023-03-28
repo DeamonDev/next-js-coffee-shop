@@ -2,11 +2,19 @@ import { Box, Grid, Typography } from "@mui/material";
 import CoffeeCard from "./coffee-card";
 import DUMMY_COFFEES from "../data/coffees";
 import { useAppDispatch, useAppSelector } from "../src/store/hooks";
-import { selectShoppingCartItems } from "../src/store/shopping-cart-slice";
+import {
+  addItemById,
+  selectShoppingCartItems,
+} from "../src/store/shopping-cart-slice";
 
 const ProductsList = () => {
   const dispatch = useAppDispatch();
   const items = useAppSelector(selectShoppingCartItems);
+
+  const addItemHandler = (id: string) => {
+    console.log("Added item: " + id);
+    dispatch(addItemById(id));
+  };
 
   console.log(items);
 
@@ -47,6 +55,7 @@ const ProductsList = () => {
                   countries={coffee.countries}
                   imageLink={coffee.imageLink}
                   price={coffee.price}
+                  onAddItem={addItemHandler}
                 />
               </Grid>
             );

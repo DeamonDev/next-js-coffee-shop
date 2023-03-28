@@ -4,6 +4,7 @@ import {
   Card,
   CardContent,
   CardMedia,
+  CircularProgress,
   Icon,
   IconButton,
   Tooltip,
@@ -13,8 +14,17 @@ import { Coffee } from "../types/Coffee";
 import ReactCountryFlag from "react-country-flag";
 import { Container } from "@mui/system";
 import styled from "@emotion/styled";
+import { addItemById } from "../src/store/shopping-cart-slice";
+import { useState } from "react";
 
-type CoffeeCardProps = Coffee;
+type CoffeeCardProps = {
+  id: string;
+  name: string;
+  imageLink: string;
+  countries: string[];
+  price: number;
+  onAddItem: (id: string) => void;
+};
 
 const COUNTRIES_MAP: Record<string, string> = {
   BR: "Brasil",
@@ -54,7 +64,19 @@ const CoffeeCard = ({
   imageLink,
   countries,
   price,
+  onAddItem,
 }: CoffeeCardProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const addItemHandler = (id: string) => {
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setIsLoading(false);
+      onAddItem(id);
+    }, 500);
+  };
+
   return (
     <Card
       sx={{
@@ -94,7 +116,10 @@ const CoffeeCard = ({
               <Typography
                 color="white"
                 fontWeight="bold"
-                sx={{ mb: { xs: "0px", md: "3px" }, fontSize: {xs: 13, md: 18} }}
+                sx={{
+                  mb: { xs: "0px", md: "3px" },
+                  fontSize: { xs: 13, md: 18 },
+                }}
               >
                 {name}
               </Typography>
@@ -103,14 +128,26 @@ const CoffeeCard = ({
             <Typography
               color="white"
               fontWeight="bold"
-              sx={{ mt: { xs: 0, md: 2 }, mr: { xs: 1, md: 3 }, fontSize: {xs: 13, md: 18} }}
+              sx={{
+                mt: { xs: 0, md: 2 },
+                mr: { xs: 1, md: 3 },
+                fontSize: { xs: 13, md: 18 },
+              }}
             >
               {price} $
             </Typography>
           </Box>
 
-          <IconButton sx={{backgroundColor: "#946e3d", borderRadius: "0"}}>
-            <AddCircleOutline fontSize="large" sx={{ color: "white" }} />
+          <IconButton
+            sx={{ backgroundColor: "#946e3d", borderRadius: "0" }}
+            onClick={addItemHandler.bind(null, id)}
+            disableRipple
+          >
+            {!isLoading ? (
+              <AddCircleOutline fontSize="large" sx={{ color: "white" }} />
+            ) : (
+              <CircularProgress color="success" size="2rem" />
+            )}
           </IconButton>
         </Box>
       </CardContentNoPadding>
