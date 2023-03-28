@@ -1,12 +1,16 @@
 import { Button, Divider, Grid, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useAppDispatch, useAppSelector } from "../../src/store/hooks";
-import { selectShoppingCartItems, selectShoppingCartTotal } from "../../src/store/shopping-cart-slice";
+import {
+  selectShoppingCartItems,
+  selectShoppingCartTotal,
+} from "../../src/store/shopping-cart-slice";
 import CartItemsList from "./cart-items-list";
 
 const style = {
+  overflow: "scroll",
   position: "absolute" as "absolute",
-  top: {xs: "60%", md: "50%"},
+  top: { xs: "45%", md: "50%" },
   left: "50%",
   display: "flex",
   flexDirection: "column",
@@ -17,7 +21,6 @@ const style = {
   height: 700,
   bgcolor: "#b58f55",
   boxShadow: 24,
-  overflow: "scroll",
 };
 
 const ShoppingCart = () => {
@@ -29,8 +32,8 @@ const ShoppingCart = () => {
   console.log(total);
 
   return (
-    <Box sx={style} overflow="scroll">
-      <Grid container spacing={0}>
+    <Box sx={style}>
+      <Grid container spacing={0} height="100%" sx={{flexWrap: "no-wrap", overflowY: "auto", overflow: "scroll"}}>
         <Grid item xs={12} md={8} sx={{ height: { xs: 400, md: 600 } }}>
           <CartItemsList />
         </Grid>
@@ -38,6 +41,7 @@ const ShoppingCart = () => {
           item
           xs={12}
           md={4}
+          overflow="auto"
           sx={{
             backgroundColor: "#c2b186",
             borderTopRightRadius: "10px",
@@ -59,13 +63,14 @@ const ShoppingCart = () => {
               mr: { xs: "5px", md: "15px" },
             }}
           >
-            <Box display="flex" flexDirection="column" sx={{}}>
+            <Box display="flex" flexDirection="column" overflow="scroll">
               <Typography sx={{ fontSize: { xs: "h6", md: "h4" } }}>
                 Order summary
               </Typography>
               <Divider />
               <Box
                 display="flex"
+                overflow="scroll"
                 flexDirection="row"
                 justifyContent="space-between"
                 sx={{
@@ -112,7 +117,7 @@ const ShoppingCart = () => {
                 <b>Apply</b>
               </Button>
             </Box>
-            <Box display="flex" flexDirection="column">
+            <Box display="flex" flexDirection="column" overflow="scroll">
               <Box
                 display="flex"
                 flexDirection="row"
