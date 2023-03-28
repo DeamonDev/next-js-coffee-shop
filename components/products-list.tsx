@@ -48,8 +48,9 @@ const ProductsList = () => {
         >
           {DUMMY_COFFEES.map((coffee) => {
             return (
-              <Grid item md={3} xs={6}>
+              <Grid key={coffee.id} item md={3} xs={6}>
                 <CoffeeCard
+                  key={coffee.id}
                   id={coffee.id}
                   name={coffee.name}
                   countries={coffee.countries}
