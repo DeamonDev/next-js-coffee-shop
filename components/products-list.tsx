@@ -5,18 +5,20 @@ import { useAppDispatch, useAppSelector } from "../src/store/hooks";
 import {
   addItemById,
   selectShoppingCartItems,
+  selectShoppingCartTotal,
 } from "../src/store/shopping-cart-slice";
 
 const ProductsList = () => {
   const dispatch = useAppDispatch();
   const items = useAppSelector(selectShoppingCartItems);
+  const total = useAppSelector(selectShoppingCartTotal);
 
   const addItemHandler = (id: string) => {
-    console.log("Added item: " + id);
     dispatch(addItemById(id));
   };
 
   console.log(items);
+  console.log(total);
 
   return (
     <Box

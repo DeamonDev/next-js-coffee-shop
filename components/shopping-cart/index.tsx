@@ -1,12 +1,12 @@
 import { Button, Divider, Grid, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useAppDispatch, useAppSelector } from "../../src/store/hooks";
-import { selectShoppingCartItems } from "../../src/store/shopping-cart-slice";
+import { selectShoppingCartItems, selectShoppingCartTotal } from "../../src/store/shopping-cart-slice";
 import CartItemsList from "./cart-items-list";
 
 const style = {
   position: "absolute" as "absolute",
-  top: "50%",
+  top: {xs: "55%", md: "50%"},
   left: "50%",
   display: "flex",
   flexDirection: "column",
@@ -23,8 +23,10 @@ const style = {
 const ShoppingCart = () => {
   const dispatch = useAppDispatch();
   const items = useAppSelector(selectShoppingCartItems);
+  const total = useAppSelector(selectShoppingCartTotal);
 
   console.log(items);
+  console.log(total);
 
   return (
     <Box sx={style}>
@@ -71,7 +73,7 @@ const ShoppingCart = () => {
                 }}
               >
                 <Typography sx={{ fontSize: { xs: "10", md: "h6" } }}>
-                  Items 3
+                  Items {items.length}
                 </Typography>
                 <Typography>23.99 $</Typography>
               </Box>
