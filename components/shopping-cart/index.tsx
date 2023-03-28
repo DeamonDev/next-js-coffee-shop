@@ -10,7 +10,7 @@ import CartItemsList from "./cart-items-list";
 const style = {
   overflow: "scroll",
   position: "absolute" as "absolute",
-  top: { xs: "45%", md: "50%" },
+  top: { xs: "50%", md: "50%" },
   left: "50%",
   display: "flex",
   flexDirection: "column",
