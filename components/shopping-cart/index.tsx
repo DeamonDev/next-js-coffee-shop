@@ -5,7 +5,7 @@ import { selectShoppingCartItems } from "../../src/store/shopping-cart-slice";
 
 const style = {
   position: "absolute" as "absolute",
-  top: "43%",
+  top: "50%",
   left: "50%",
   display: "flex",
   flexDirection: "column",
