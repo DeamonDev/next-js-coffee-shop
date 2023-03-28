@@ -6,7 +6,7 @@ import CartItemsList from "./cart-items-list";
 
 const style = {
   position: "absolute" as "absolute",
-  top: {xs: "55%", md: "50%"},
+  top: {xs: "60%", md: "50%"},
   left: "50%",
   display: "flex",
   flexDirection: "column",
@@ -29,7 +29,7 @@ const ShoppingCart = () => {
   console.log(total);
 
   return (
-    <Box sx={style}>
+    <Box sx={style} overflow="scroll">
       <Grid container spacing={0}>
         <Grid item xs={12} md={8} sx={{ height: { xs: 400, md: 600 } }}>
           <CartItemsList />
@@ -75,7 +75,7 @@ const ShoppingCart = () => {
                 <Typography sx={{ fontSize: { xs: "10", md: "h6" } }}>
                   Items {items.length}
                 </Typography>
-                <Typography>23.99 $</Typography>
+                <Typography>{total.toFixed(2)} $</Typography>
               </Box>
             </Box>
             <Box
@@ -123,7 +123,7 @@ const ShoppingCart = () => {
                   <b>Total cost</b>
                 </Typography>
                 <Typography>
-                  <b>32.99 $</b>
+                  <b>{total.toFixed(2)} $</b>
                 </Typography>
               </Box>
               <Button
