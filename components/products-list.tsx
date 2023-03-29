@@ -46,7 +46,7 @@ const ProductsList = () => {
         <Grid
           container
           spacing={2}
-          sx={{ height: "100%", ml: 1, mr: 2, mt: { xs: 1 }, mb: { xs: 2 } }}
+          sx={{ height: "100%", ml: 1, mr: 2, mt: { xs: 1 }, mb: { xs: 2 }}}
         >
           {DUMMY_COFFEES.map((coffee) => {
             return (

@@ -42,9 +42,9 @@ const ShoppingCart = ({onClose}: ShoppingCartProps) => {
         container
         spacing={0}
         height="100%"
-        sx={{ flexWrap: "no-wrap", overflowY: "auto", overflow: "scroll" }}
+        sx={{ flexWrap: "no-wrap", overflowY: "auto", overflowX: "hidden" }}
       >
-        <Grid item xs={12} md={8} sx={{ height: { xs: 400, md: 600 } }}>
+        <Grid item xs={12} md={8} sx={{ height: { xs: 400, md: 600 }, overflowX: "hidden" }}>
           <CartItemsList items={items} onClose={onClose} />
         </Grid>
         <Grid

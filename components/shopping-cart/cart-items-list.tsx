@@ -22,8 +22,8 @@ type CartItemsListProps = {
 
 const CartItemsList = ({ items, onClose }: CartItemsListProps) => {
   return (
-    <Box display="flex" flexDirection="column" sx={{ height: "100%" }}>
-      <Box display="flex" flexDirection="row" justifyContent="space-between">
+    <Box display="flex" flexDirection="column" sx={{ height: "100%", overflowX: "hidden" }}>
+      <Box display="flex" flexDirection="row" justifyContent="space-between" sx={{overflowX: "hidden"}}>
         <Typography
           sx={{
             mt: { xs: 2, md: 5 },
@@ -41,7 +41,8 @@ const CartItemsList = ({ items, onClose }: CartItemsListProps) => {
       <Box
         sx={{
           borderRadius: "10px",
-          overflow: "scroll",
+          overflowX: "hidden",
+          overflowY: "scroll",
           height: { xs: "80%", md: "100%" },
           ml: { xs: 0, md: 0 },
           mr: { xs: 1, md: 1 },
