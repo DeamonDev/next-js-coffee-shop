@@ -24,7 +24,11 @@ const style = {
   boxShadow: 24,
 };
 
-const ShoppingCart = () => {
+type ShoppingCartProps = {
+  onClose: () => void;
+}
+
+const ShoppingCart = ({onClose}: ShoppingCartProps) => {
   const dispatch = useAppDispatch();
   const items = useAppSelector(selectShoppingCartItems);
   const total = useAppSelector(selectShoppingCartTotal);
@@ -41,7 +45,7 @@ const ShoppingCart = () => {
         sx={{ flexWrap: "no-wrap", overflowY: "auto", overflow: "scroll" }}
       >
         <Grid item xs={12} md={8} sx={{ height: { xs: 400, md: 600 } }}>
-          <CartItemsList items={items} />
+          <CartItemsList items={items} onClose={onClose} />
         </Grid>
         <Grid
           item

@@ -17,9 +17,10 @@ type CartItemsListProps = {
     amount: number;
     price: number;
   }[];
+  onClose: () => void;
 };
 
-const CartItemsList = ({ items }: CartItemsListProps) => {
+const CartItemsList = ({ items, onClose }: CartItemsListProps) => {
   return (
     <Box display="flex" flexDirection="column" sx={{ height: "100%" }}>
       <Box display="flex" flexDirection="row" justifyContent="space-between">
@@ -33,7 +34,7 @@ const CartItemsList = ({ items }: CartItemsListProps) => {
         >
           Shopping Cart
         </Typography>
-        <IconButton sx={{ mt: { sx: 5, md: 5 }, mr: { sx: 1, md: 2 } }}>
+        <IconButton sx={{ mt: { sx: 5, md: 5 }, mr: { sx: 1, md: 2 } }} onClick={onClose}>
           <CloseOutlinedIcon />
         </IconButton>
       </Box>

@@ -26,11 +26,15 @@ const Counter = ({ id, amount }: CounterProps) => {
     >
       <Button
         variant="contained"
+        disableRipple
         sx={{
           borderTopRightRadius: 0,
           maxHeight: { xs: "30px", md: "50px" },
           borderBottomRightRadius: 0,
           backgroundColor: "#5e4f2a",
+          "&:hover": {
+            backgroundColor: "#52482f"
+          }
         }}
         onClick={addItemHandler.bind(null, id)}
       >
@@ -53,11 +57,15 @@ const Counter = ({ id, amount }: CounterProps) => {
       </Box>
       <Button
         variant="contained"
+        disableRipple
         sx={{
           borderTopLeftRadius: 0,
           maxHeight: { xs: "30px", md: "50px" },
           borderBottomLeftRadius: 0,
           backgroundColor: "#5e4f2a",
+          "&:hover": {
+            backgroundColor: "#52482f"
+          }
         }}
         onClick={removeItemHandler.bind(null, id)}
       >

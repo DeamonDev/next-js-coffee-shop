@@ -137,7 +137,7 @@ const Header = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <ShoppingCart />
+        <ShoppingCart onClose={handleClose}/>
       </Modal>
     </Fragment>
   );
