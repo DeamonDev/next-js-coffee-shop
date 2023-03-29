@@ -2,7 +2,7 @@ import { Coffee } from "../types/Coffee";
 
 const DUMMY_COFFEES: Coffee[] = [
   {
-    id: "cf-1",
+    id: "coffee-1",
     name: "Rojas",
     imageLink: "/coffee-1.jpg",
     countries: ["BR", "NP"],
@@ -10,7 +10,7 @@ const DUMMY_COFFEES: Coffee[] = [
   },
 
   {
-    id: "cf-2",
+    id: "coffee-2",
     name: "Da Malleo",
     imageLink: "/coffee-2.jpg",
     countries: ["BR"],
@@ -18,7 +18,7 @@ const DUMMY_COFFEES: Coffee[] = [
   },
 
   {
-    id: "cf-3",
+    id: "coffee-3",
     name: "Breve",
     imageLink: "/coffee-3.jpg",
     countries: ["BR", "IN"],
@@ -26,7 +26,7 @@ const DUMMY_COFFEES: Coffee[] = [
   },
 
   {
-    id: "cf-4",
+    id: "coffee-4",
     name: "Cortado",
     imageLink: "/coffee-4.jpg",
     countries: ["MX"],

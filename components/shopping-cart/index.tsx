@@ -1,5 +1,6 @@
 import { Button, Divider, Grid, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { getCoffeeById } from "../../data/coffees";
 import { useAppDispatch, useAppSelector } from "../../src/store/hooks";
 import {
   selectShoppingCartItems,
@@ -19,7 +20,7 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: { xs: "95%", md: "60%" },
   height: 700,
-  bgcolor: "#b58f55",
+  bgcolor: "#dbd1ba",
   boxShadow: 24,
 };
 
@@ -33,9 +34,14 @@ const ShoppingCart = () => {
 
   return (
     <Box sx={style}>
-      <Grid container spacing={0} height="100%" sx={{flexWrap: "no-wrap", overflowY: "auto", overflow: "scroll"}}>
+      <Grid
+        container
+        spacing={0}
+        height="100%"
+        sx={{ flexWrap: "no-wrap", overflowY: "auto", overflow: "scroll" }}
+      >
         <Grid item xs={12} md={8} sx={{ height: { xs: 400, md: 600 } }}>
-          <CartItemsList />
+          <CartItemsList items={items} />
         </Grid>
         <Grid
           item
